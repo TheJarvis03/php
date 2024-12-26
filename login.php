@@ -1,11 +1,10 @@
 <?php 
  
 // Thiết lập thông tin kết nối đến database 
-$servername = "database-server-lab7.cocgl5wbv5ga.ap-southeast
-1.rds.amazonaws.com"; 
+$servername = "13.250.99.240"; 
 $username = "admin"; 
 $password = "12345678"; 
-$dbname = "myDB"; 
+$dbname = "database-1"; 
  
 // Tạo kết nối đến database 
 $conn = new mysqli($servername, $username, $password, $dbname); 
@@ -22,8 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"]; 
  
     // Truy vấn lấy dữ liệu từ database 
-    $sql = "SELECT * FROM User WHERE username='$username' AND 
-password='$password'"; 
+    $sql = "SELECT * FROM User WHERE username='$username' AND password='$password'"; 
     $result = $conn->query($sql); 
  
     // Kiểm tra số lượng bản ghi trả về 
@@ -47,8 +45,7 @@ password='$password'";
  
 <body> 
     <h2>Đăng nhập</h2>
-        <form method="post" action="<?php echo 
-htmlspecialchars($_SERVER["PHP_SELF"]); ?>"> 
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"> 
         <label>Tên đăng nhập:</label> 
         <input type="text" name="username"><br><br> 
         <label>Mật khẩu:</label> 
